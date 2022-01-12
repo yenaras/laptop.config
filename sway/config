@@ -75,7 +75,11 @@ bindsym $mod+Shift+d exec $lockman
 ### Key bindings
 #
 # Basics:
-#
+    
+    #Start Firefox
+
+    bindsym $mod+o exec firefox
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
