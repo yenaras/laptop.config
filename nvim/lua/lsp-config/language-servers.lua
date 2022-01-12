@@ -1,15 +1,18 @@
-local lsp_installer = require"nvim-lsp-installer"
+local lsp_installer = require("nvim-lsp-installer")
 
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+	local function buf_set_keymap(...)
+		vim.api.nvim_buf_set_keymap(bufnr, ...)
+	end
+	local function buf_set_option(...)
+		vim.api.nvim_buf_set_option(bufnr, ...)
+	end
 
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  local opts = { noremap=true, silent=true }
+	local opts = { noremap = true, silent = true }
 
-
-    buf_set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts) --> jumps to the definition of the symbol under the cursor
+	buf_set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts) --> jumps to the definition of the symbol under the cursor
 	buf_set_keymap("n", "<leader>lh", ":lua vim.lsp.buf.hover()<CR>", opts) --> information about the symbol under the cursos in a floating window
 	buf_set_keymap("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", opts) --> lists all the implementations for the symbol under the cursor in the quickfix window
 	buf_set_keymap("n", "<leader>rn", ":lua vim.lsp.util.rename()<CR>", opts) --> renaname old_fname to new_fname
@@ -20,36 +23,35 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "]d", ":lua vim.diagnostic.goto_next()<CR>", opts)
 	buf_set_keymap("n", "<leader>lq", ":lua vim.diagnostic.setloclist()<CR>", opts)
 	buf_set_keymap("n", "<leader>lf", ":lua vim.lsp.buf.formatting()<CR>", opts) --> formats the current buffer
- end
-
+end
 
 -- Include the servers you want to have installed by default below
 local servers = {
-  "html",
-  "bashls",
-  "clangd",
-  "yamlls",
-  "emmet_ls",
-  "eslint",
-  "sumneko_lua",
-  "rust_analyzer",
-  "tsserver",
-  "pyright",
-  "taplo",
-  "jedi_language_server"
+	"html",
+	"bashls",
+	"clangd",
+	"yamlls",
+	"emmet_ls",
+	"eslint",
+	"sumneko_lua",
+	"rust_analyzer",
+	"tsserver",
+	"pyright",
+	"taplo",
+	"jedi_language_server",
 }
 ---@diagnostic disable-next-line: undefined-global
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 for _, name in pairs(servers) do
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found then
-    if not server:is_installed() then
-      print("Installing " .. name)
-      server:install()
-    end
-  end
+	local server_is_found, server = lsp_installer.get_server(name)
+	if server_is_found then
+		if not server:is_installed() then
+			print("Installing " .. name)
+			server:install()
+		end
+	end
 end
 
 lsp_installer.on_server_ready(function(server)
@@ -58,17 +60,17 @@ lsp_installer.on_server_ready(function(server)
 		on_attach = on_attach,
 		capabilities = capabilities,
 	}
-    if server.name == "rust_analyzer" then
-        -- Initialize the LSP via rust-tools instead
-        require("rust-tools").setup {
-            -- The "server" property provided in rust-tools setup function are the
-            -- settings rust-tools will provide to lspconfig during init.
-            -- We merge the necessary settings from nvim-lsp-installer (server:get_default_options())
-            -- with the user's own settings (default_opts).
-            server = vim.tbl_deep_extend("force", server:get_default_options(), default_opts),
-        }
-        server:attach_buffers()
-    else
-        server:setup(default_opts)
-    end
+	if server.name == "rust_analyzer" then
+		-- Initialize the LSP via rust-tools instead
+		require("rust-tools").setup({
+			-- The "server" property provided in rust-tools setup function are the
+			-- settings rust-tools will provide to lspconfig during init.
+			-- We merge the necessary settings from nvim-lsp-installer (server:get_default_options())
+			-- with the user's own settings (default_opts).
+			server = vim.tbl_deep_extend("force", server:get_default_options(), default_opts),
+		})
+		server:attach_buffers()
+	else
+		server:setup(default_opts)
+	end
 end)

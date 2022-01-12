@@ -19,4 +19,5 @@ return require'packer'.startup(function()
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'williamboman/nvim-lsp-installer'
     use 'simrat39/rust-tools.nvim'
+    use 'jose-elias-alvarez/null-ls.nvim'
 end)
