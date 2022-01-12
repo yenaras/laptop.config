@@ -24,7 +24,7 @@ set $menu wofi --show=drun --lines=5 --prompt=""
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/purple.jpg fill
+output * bg ~/.config/sway/purple.jpg fill
 #
 # Example configuration:
 #
