@@ -18,6 +18,8 @@ zstyle :compinstall filename '/home/brandon/.config/zsh/.zshrc'
 # source alias file
 source /$HOME/.config/zsh/aliases
 
+# source OSC 7 escape sequence script
+source /$XDG_CONFIG_HOME/zsh/osc7_escape_sequence
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
