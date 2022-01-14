@@ -27,18 +27,11 @@ end
 
 -- Include the servers you want to have installed by default below
 local servers = {
-	"html",
 	"bashls",
 	"clangd",
 	"yamlls",
-	"emmet_ls",
-	"eslint",
-	"sumneko_lua",
 	"rust_analyzer",
-	"tsserver",
 	"pyright",
-	"taplo",
-	"jedi_language_server",
 }
 ---@diagnostic disable-next-line: undefined-global
 local capabilities = vim.lsp.protocol.make_client_capabilities()
