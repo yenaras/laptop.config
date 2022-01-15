@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot 
+set $term foot tmux 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -80,7 +80,8 @@ bindsym $mod+Shift+d exec $lockman
 # Basics:
     
     #Take a screenshot
-    bindsym Print exec grim
+    bindsym Print exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" screenshot.png
+    bindsym $mod+Print grim -g "$(slurp)" screenshot.png
     
     #Start Firefox
     bindsym $mod+o exec firefox
