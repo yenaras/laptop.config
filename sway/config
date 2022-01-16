@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot tmux 
+set $term foot tmux
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -79,16 +79,20 @@ bindsym $mod+Shift+d exec $lockman
 #
 # Basics:
     
-    #Take a screenshot
-    bindsym Print exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" screenshot.png
-    bindsym $mod+Print grim -g "$(slurp)" screenshot.png
     
+
+# Take a screenshot with all output and save it into screenshots
+bindsym Print exec grim -t jpeg ~/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
+
+# Take a Screenshot with the region select
+bindsym $mod+Print exec grim -t jpeg -g "$(slurp)" ~/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
+
     #Start Firefox
     bindsym $mod+o exec firefox
 
     # Start a terminal
     bindsym $mod+Return exec $term
-
+    bindsym $mod+Shift+Return exec foot tmux
     # Kill focused window
     bindsym $mod+x kill
 
