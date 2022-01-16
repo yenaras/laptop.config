@@ -12,4 +12,4 @@ If you want to try something from it, make sure you research it first.
     Shell: Zsh
     Editor: Neovim
 
-![screenshot](https://github.com/brandon82890/.config/blob/main/screenshots/example.png?raw=true)
+![screenshot](https://github.com/brandon82890/.config/blob/main/screenshots/example.jpg?raw=true)
