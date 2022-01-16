@@ -8,7 +8,7 @@ If you want to try something from it, make sure you research it first.
 
     OS: Arch linux
     Window Manager: Sway
-    Terminal: Alacritty with tmux
+    Terminal: foot with tmux 
     Shell: Zsh
     Editor: Neovim
 
