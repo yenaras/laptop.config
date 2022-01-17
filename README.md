@@ -1,14 +1,14 @@
 # .config
-My .config
-
-This is my current setup. 
-Feel free to look through it, but don't just copy the files.
+##My .config
+###*Work in Progress*
+My current setup. 
+Feel free to look through it.
 It probably won't work out of the box.
-If you want to try something from it, make sure you research it first.
+If you want to try something from it, research it first.
 
-    OS: Arch linux
+    OS: Arch Linux
     Window Manager: Sway
-    Terminal: foot with tmux 
+    Terminal: foot with Tmux 
     Shell: Zsh
     Editor: Neovim
 
