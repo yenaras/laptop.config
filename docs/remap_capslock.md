@@ -46,4 +46,4 @@ Now your caps lock should be successfully remapped.
 
 ---
 # Next
-[Setup Sway](setup_sway.md)
+[Setup](setup.md)
