@@ -4,6 +4,10 @@
 
 ### *Work in Progress*
 
+---
+![screenshot](https://github.com/brandon82890/.config/blob/main/screenshots/example.jpg?raw=true)
+---
+
 My current setup.
 Feel free to look through it.\
 It probably won't work out of the box.\
@@ -32,8 +36,6 @@ The documentation should contain every step to take to reproduce this set up.
 
 - Light footprint. It would probably run on a potato.
 
----
-![screenshot](https://github.com/brandon82890/.config/blob/main/screenshots/example.jpg?raw=true)
 ---
 # Documentation
 - [Install Arch Linux with System-d boot](docs/systemd_arch_install.md)
