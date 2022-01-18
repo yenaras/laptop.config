@@ -30,7 +30,7 @@ The documentation should contain every step to take to reproduce this set up.
 
 - Fully integrated IDE in Neovim
 
-- Light footprint, would probably run on a potato
+- Light footprint. It would probably run on a potato.
 
 ---
 ![screenshot](https://github.com/brandon82890/.config/blob/main/screenshots/example.jpg?raw=true)
@@ -45,3 +45,20 @@ The documentation should contain every step to take to reproduce this set up.
 ### Bugs
 ---
 - Have to run :PackerSync before :MarkdownPreview in nvim
+
+---
+# Credits
+### Where I learned all this:
+
+- [Arch Wiki](https://wiki.archlinux.org/)
+
+- [Systemd boot guide from Addictivetips.com](https://www.addictivetips.com/ubuntu-linux-tips/set-up-systemd-boot-on-arch-linux/)
+
+Where I learned Vim:
+- [Boost  your Coding FU with VSCode and Vim](https://www.barbarianmeetscoding.com/blog/boost-your-coding-fu-with-vscode-and-vim)
+
+Where I learned how to set up neovim:
+- [Tuff Gniuz Neovim Lua Config Playlist](https://www.youtube.com/watch?v=qb6fPgZMRF4&list=PLIHtvvGZ1O3jBXdp9Id02vRuOEOWIGB_w)
+
+Tmux and Neovim setup inspired by:
+- [This dev.to article](https://dev.to/hlappa/my-web-development-environment-alacritty-tmux-neovim-4pd2)
