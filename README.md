@@ -7,7 +7,8 @@
 My current setup.
 Feel free to look through it.\
 It probably won't work out of the box.\
-If you want to try something from it, research it first.
+If you want to try something from it, research it first.\
+The documentation should contain every step to take to reproduce this set up.
 
     OS: Arch Linux
     Window Manager: Sway
