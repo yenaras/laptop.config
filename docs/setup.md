@@ -4,7 +4,7 @@
 ---
 Install the following packages:
 ```
-sudo pacman -S sway swaylock-effects wofi waybar tmux alacritty x-org-xwayland \
+sudo pacman -S sway wofi waybar tmux alacritty x-org-xwayland \
 pulseaudio pulseaudio-alsa alsa-utils pavucontrols
 ```
 
@@ -101,5 +101,8 @@ Now I will navigate to ~/.config/nvim/lua/packer-config/init.lua and run these i
 :luafile %
 :PackerSync
 ```
+---
+
+---
 This guide is a work in progress, and for my own documentation to reproduce my development environment incase I forget anything.
 
