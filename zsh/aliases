@@ -22,6 +22,7 @@ alias sv='sudo nvim'
 alias sn='sudo nvim'
 alias pacup='sudo pacman -Syu'
 alias pac='sudo pacman -S'
+alias pacr='sudo pacman -R'
 alias tmux="tmux -2"
 alias ls='ls --color=auto'
 alias lsl='ls -l'

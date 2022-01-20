@@ -80,6 +80,15 @@ You should change this type to Linux Swap, which should be just above the Linux 
 - Make a third partition using the rest of the hard drive. This should default to Linux Filesystem type. If not, change it to Linux Filesystem type.
 The third partition will be your root partition.
 
+- Format the root partition with ext4
+```
+mkfs.ext4 /dev/sda3
+```
+- Format the EFI partition to FAT32
+```
+mkfs.fat -F 32 /dev/sda1
+```
+
 - Mount the root partiton
 ```
 mount /dev/sda3 /mnt
@@ -94,6 +103,7 @@ swapon /dev/sda2
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 ```
+
 ---
 ##### Pacstrap, fstab, and chroot
 ---
@@ -102,7 +112,7 @@ I use neovim as my text editor, but you can use nano if you don't know how to us
 I highly recommend learning vim, because it can speed up your workflow a lot.  If you want to follow my set up, you should learn vim first.
 Everything about my setup is designed to flow smoothly with vim-like keybinds.
 ```
-pacstrap base base-devel linux linux-firmware neovim man-db man-pages texinfo
+pacstrap /mnt base base-devel linux linux-firmware neovim man-db man-pages texinfo
 ```
 - Once this finishes, generate the fstab:
 ```
@@ -151,7 +161,7 @@ nvim /etc/hosts
 ```
 passwd
 ````
-- Make your user(replace username with your username)
+- Make your user.  **ATTN:** (**replace username with your username!**)
 ```
 useradd -m -g users -G wheel,storage,power -s /bin/bash username
 ```
@@ -199,11 +209,20 @@ y      <-- confirm the change
 bootctl --path=/boot install
 
 ```
+- Make the file /boot/loader/entries/arch.conf
+```
+touch /boot/loader/entries/arch.conf
+```
+
+- Append the PARTUUID
+```
+findmnt -fn -o PARTUUID /dev/sda3 >> /boot/loader/entries/arch.conf
+```
+
 - We need the PARTUUID of the root partition.
 ```
 blkid /dev/sda3
 ```
-- Write down the output of PARTUUID=(*write this hash down*)
 
 - Make the arch.conf file in the boot loader
 ```
@@ -214,7 +233,7 @@ nvim /boot/loader/entries/arch.conf
 title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /initramfs-linux.img
-options root=YOUR-PARTUUID rw
+options root=PARTUUID=<part-hash-goes-here-without-the-angle-brackets> rw
 ```
 - Make sure you used your root partitions PARTUUID in the above file, and don't forget the rw after it.
 
