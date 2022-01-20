@@ -237,6 +237,15 @@ options root=PARTUUID=<part-hash-goes-here-without-the-angle-brackets> rw
 ```
 - Make sure you used your root partitions PARTUUID in the above file, and don't forget the rw after it.
 
+---
+# OR!
+- If you use vim or neovim, you can easily import the part ID into the file with this command in the : menu
+with this file open
+```
+:r! findmnt -f -o PARTUUID /dev/sda3
+```
+---
+
 - Edit the loader.conf file
 ```
 nvim /boot/loader/loader.conf
