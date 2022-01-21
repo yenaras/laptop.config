@@ -94,6 +94,12 @@ With it, I can seamlessly navigate between the web and other open windows withou
 ```
 sudo pacman -S firefox firefox-tridactyl
 ```
+
+To make firefox use Wayland instead of XWayland, add this line to /etc/environment file:
+```
+MOZ_ENABLE_WAYLAND=1    firefox
+```
+
 ---
 ## Neovim setup
 Now I will navigate to ~/.config/nvim/lua/packer-config/init.lua and run these in the neovim : menu
