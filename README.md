@@ -1,8 +1,12 @@
-# .config
+# .config for my laptop
 
 ## My .config
 
 ### *Work in Progress*
+
+I don't use this set up on my PC anymore, because I have an Nvidia GPU and it doesn't play well with Wayland.  Most things work fine with the Nouevaeu
+open source driver, but I can't play games or use Cuda or anything that takes advantage of my GPU.  I have a seperate config for my PC now that uses mostly
+Rust programs that I will upload soon.  I'm still tweaking it a little bit before I push it.
 
 ---
 ![screenshot](https://github.com/brandon82890/.config/blob/main/screenshots/example.jpg?raw=true)
