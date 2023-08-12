@@ -214,7 +214,7 @@ bootctl --path=/boot install
 touch /boot/loader/entries/arch.conf
 ```
 
-- Append the PARTUUID root partition to the file. 
+- Append the PARTUUID of your root partition to the file. 
 This will save you from having to manually write it down and from human typo errors. You can build the rest of the file around the 
 PARTUUID to save time, paper, and headache.
 
