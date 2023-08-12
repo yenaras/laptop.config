@@ -214,14 +214,12 @@ bootctl --path=/boot install
 touch /boot/loader/entries/arch.conf
 ```
 
-- Append the PARTUUID
+- Append the PARTUUID root partition to the file. 
+This will save you from having to manually write it down and from human typo errors. You can build the rest of the file around the 
+PARTUUID to save time, paper, and headache.
+
 ```
 findmnt -fn -o PARTUUID /dev/sda3 >> /boot/loader/entries/arch.conf
-```
-
-- We need the PARTUUID of the root partition.
-```
-blkid /dev/sda3
 ```
 
 - Make the arch.conf file in the boot loader
@@ -235,7 +233,8 @@ linux   /vmlinuz-linux
 initrd  /initramfs-linux.img
 options root=PARTUUID=<part-hash-goes-here-without-the-angle-brackets> rw
 ```
-- Make sure you used your root partitions PARTUUID in the above file, and don't forget the rw after it.
+- Make sure you used your root partitions PARTUUID in the above file, replacing `<part-hash-goes-here>`, and don't forget the rw after it.
+You can verify the PARTUUID with `findmnt -fn -o PARTUUID /dev/<root-partition>`.
 
 ---
 # OR!
