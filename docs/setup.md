@@ -4,8 +4,8 @@
 ---
 Install the following packages:
 ```
-sudo pacman -S sway wofi waybar tmux alacritty x-org-xwayland \
-pulseaudio pulseaudio-alsa alsa-utils pavucontrols
+sudo pacman -S sway wofi waybar tmux alacritty xorg-xwayland \
+pulseaudio pulseaudio-alsa alsa-utils pavucontrol
 ```
 
 When the install is finished, start the Sway GUI by typing ```sway``` in the terminal.
