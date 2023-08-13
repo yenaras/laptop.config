@@ -116,7 +116,7 @@ pacstrap /mnt base base-devel linux linux-firmware neovim man-db man-pages texin
 ```
 - Once this finishes, generate the fstab:
 ```
-genfstab -U /mnt >> /mnt/etc/fstab
+genfstab -U /mnt > /mnt/etc/fstab
 ```
 - Change root into your hard drive
 ```
